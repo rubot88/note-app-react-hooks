@@ -1,3 +1,9 @@
 import React from 'react';
 
-export const Home = ()=>(<h1>Home Page</h1>)
+import { Form } from '../components/form';
+
+export const Home = () => {
+    return (
+        <Form />
+    )
+}
