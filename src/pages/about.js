@@ -4,7 +4,7 @@ export const About = () => (
     <div className="about jumbotron">
         <h1>About</h1>
         <p>This app is created for educational purposes by Rustam Botirov</p>
-        <p>Version 1.0.1</p>
+        <p><strong>Version 1.0.1</strong> </p>
         <h3>Used technologies: </h3>
         <ul className="list-group">
             <li className="list-group-item list-group-item-action">React</li>
