@@ -12,7 +12,7 @@ export const Notes = ({ notes }) => {
                         <strong className="mr-3">{note.title}</strong>
                         <small>{new Date().toLocaleDateString()}</small>
                     </div>
-                    <button type="button" class="btn btn-outline-danger btn-sm">&times;</button>
+                    <button type="button" className="btn btn-outline-danger btn-sm">&times;</button>
                 </li>
             ))}
         </ul>

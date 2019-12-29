@@ -14,8 +14,8 @@ export const AlertState = ({ children }) => {
             payload: { text, type }
         })
     };
-    const hide = (text, type = 'warning') => {
-        dispatch({ type: HIDE_ALERT })
+    const hide = () => {
+        dispatch({ type: HIDE_ALERT });
     };
 
     return (
