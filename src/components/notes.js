@@ -1,19 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { FirebaseContext } from '../context/firebase/firebaseContext';
 
-export const Notes = ({ notes }) => {    
+export const Notes = ({ notes }) => {
+    const { removeNote } = useContext(FirebaseContext);
+
+    const renderNotes = notes.map(({ id, title, date }) => (
+        <li
+            className="list-group-item d-flex justify-content-between align-content-center"
+            key={id}>
+            <div className="align-self-center">
+                <strong className="mr-3">{title}</strong>
+                <small>{date}</small>
+            </div>
+            <button
+                type="button"
+                className="btn btn-outline-danger btn-sm"
+                onClick={() => removeNote(id)}>&times;</button>
+        </li>
+    ));
     return (
         <ul className="list-group">
-            {notes.map(note => (
-                <li
-                    className="list-group-item d-flex justify-content-between align-content-center"
-                    key={note.id}>
-                    <div className="align-self-center">
-                        <strong className="mr-3">{note.title}</strong>
-                        <small>{note.date}</small>
-                    </div>
-                    <button type="button" className="btn btn-outline-danger btn-sm">&times;</button>
-                </li>
-            ))}
+            {renderNotes}
         </ul>
     );
 }

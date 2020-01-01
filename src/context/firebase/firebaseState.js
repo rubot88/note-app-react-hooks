@@ -58,11 +58,14 @@ export const FirebaseState = ({ children }) => {
 
     const removeNote = async id => {
         await axios.delete(`${url}/notes/${id}.json`);
-
         dispatch({
             type: REMOVE_NOTE,
             payload: id
-        })
+        });
+        show("Note was removed", 'success');
+        if (state.notes.length < 2) {
+            setTimeout(() => show('There are no notes to show') , 1000);
+        }
     }
 
     return (<FirebaseContext.Provider value={{
