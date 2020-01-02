@@ -4,7 +4,7 @@ import { FirebaseContext } from '../context/firebase/firebaseContext';
 
 export const Form = () => {
     const [value, setValue] = useState('');
-    const { show } = useContext(AlertContext);
+    const { show, hide } = useContext(AlertContext);
     const { addNote } = useContext(FirebaseContext)
 
     const submitHandler = (event) => {
@@ -21,6 +21,8 @@ export const Form = () => {
         } else {
             show('Enter a note name', 'warning');
         }
+        setTimeout(hide, 2000);
+
     };
 
 

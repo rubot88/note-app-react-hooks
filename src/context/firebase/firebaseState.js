@@ -13,7 +13,7 @@ export const FirebaseState = ({ children }) => {
         loading: false
     };
     const [state, dispatch] = useReducer(firebaseReducer, initialState);
-    const { show } = useContext(AlertContext);
+    const { show, hide } = useContext(AlertContext);
 
     const showLoader = () => {
         dispatch({ type: SHOW_LOADER })
@@ -36,6 +36,8 @@ export const FirebaseState = ({ children }) => {
             hideLoader();
             show('There are no notes to show');
         }
+        setTimeout(hide, 2000);
+
     };
 
     const addNote = async title => {
@@ -64,8 +66,9 @@ export const FirebaseState = ({ children }) => {
         });
         show("Note was removed", 'success');
         if (state.notes.length < 2) {
-            setTimeout(() => show('There are no notes to show') , 1000);
+            setTimeout(() => show('There are no notes to show'), 1000);
         }
+        setTimeout(hide, 2000);
     }
 
     return (<FirebaseContext.Provider value={{

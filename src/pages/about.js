@@ -9,6 +9,8 @@ export const About = () => (
         <ul className="list-group">
             <li className="list-group-item list-group-item-action">React</li>
             <li className="list-group-item list-group-item-action">React Router DOM</li>
+            <li className="list-group-item list-group-item-action">React Transition Group</li>
+            <li className="list-group-item list-group-item-action">Prop Types</li>
             <li className="list-group-item list-group-item-action">React Hooks</li>
             <li className="list-group-item list-group-item-action">Bootstrap</li>
             <li className="list-group-item list-group-item-action">SASS</li>
