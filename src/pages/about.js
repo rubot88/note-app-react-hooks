@@ -15,6 +15,7 @@ export const About = () => (
             <li className="list-group-item list-group-item-action">Bootstrap</li>
             <li className="list-group-item list-group-item-action">SASS</li>
             <li className="list-group-item list-group-item-action">Axios</li>
+            <li className="list-group-item list-group-item-action">Firebase</li>
         </ul>
     </div>
 );
