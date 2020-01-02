@@ -1,26 +1,30 @@
 import React, { useContext } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
+
+
 import { FirebaseContext } from '../context/firebase/firebaseContext';
+import { NotesItem } from './notes-item';
 
 export const Notes = ({ notes }) => {
     const { removeNote } = useContext(FirebaseContext);
+    const renderNotes = notes.map((note) => (
+        <CSSTransition
+            timeout={800}
+            classNames={'note'}
+            key={note.id}>
+            <NotesItem note={note}
+                removeNote={removeNote} />
+        </CSSTransition>
 
-    const renderNotes = notes.map(({ id, title, date }) => (
-        <li
-            className="list-group-item d-flex justify-content-between align-content-center"
-            key={id}>
-            <div className="align-self-center">
-                <strong className="mr-3">{title}</strong>
-                <small>{date}</small>
-            </div>
-            <button
-                type="button"
-                className="btn btn-outline-danger btn-sm"
-                onClick={() => removeNote(id)}>&times;</button>
-        </li>
     ));
     return (
-        <ul className="list-group">
+        <TransitionGroup
+            component="ul"
+            className="list-group">
             {renderNotes}
-        </ul>
+        </TransitionGroup>
     );
-}
+};
+
+
+

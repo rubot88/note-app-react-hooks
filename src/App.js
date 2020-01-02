@@ -15,9 +15,14 @@ function App() {
         <BrowserRouter>
           <Header />
           <div className="container pt-4">
-            <Alert />
             <Switch>
-              <Route path="/" exact component={Home} />
+              <Route path="/" exact
+                render={() => (
+                  <div>
+                    <Alert />
+                    <Home />
+                  </div>)
+                } />
               <Route path="/about" component={About} />
             </Switch>
           </div>
